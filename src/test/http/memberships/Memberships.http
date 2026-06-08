@@ -1,0 +1,14 @@
+### 3. List all memberships
+GET http://localhost:8080/api/membership/all
+
+### 4. List pending memberships
+GET http://localhost:8080/api/membership/pending
+
+### 5. Approve membership with ID = 1
+POST http://localhost:8080/api/membership/1/approve
+
+### 6. List all memberships again (should show APPROVED)
+GET http://localhost:8080/api/membership/all
+
+### 7. delete membership with ID
+DELETE http://localhost:8080/api/membership/3

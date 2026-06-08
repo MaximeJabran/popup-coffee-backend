@@ -1,0 +1,17 @@
+### GET — List all events
+GET http://localhost:8080/events
+Accept: application/json
+
+
+### GET — Event by ID
+GET http://localhost:8080/events/1
+Accept: application/json
+
+
+### DELETE — Delete event by ID
+DELETE http://localhost:8080/events/2
+
+
+### GET — Registrations for a specific event
+GET http://localhost:8080/registrations/event/2
+Accept: application/json

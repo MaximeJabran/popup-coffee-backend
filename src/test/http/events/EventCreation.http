@@ -1,0 +1,29 @@
+### Create future event
+POST http://localhost:8080/events
+Content-Type: application/json
+
+{
+  "startDate": "2026-08-01T00:00:00",
+  "endDate": "2026-08-05T00:00:00",
+  "location": "Rue du fort, Comines, Belgium"
+}
+
+### Create future event 2
+POST http://localhost:8080/events
+Content-Type: application/json
+
+{
+  "startDate": "2026-07-25T00:00:00",
+  "endDate": "2026-07-28T00:00:00",
+  "location": "Rue du fort, Comines, Belgium"
+}
+
+### Create future event 3
+POST http://localhost:8080/events
+Content-Type: application/json
+
+{
+  "startDate": "2027-01-01T00:00:00",
+  "endDate": "2027-01-03T00:00:00",
+  "location": "Rue du fort, Comines, Belgium"
+}

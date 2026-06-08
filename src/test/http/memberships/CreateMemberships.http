@@ -1,0 +1,49 @@
+### 1. Generate an OTC
+POST http://localhost:8080/api/membership/admin/generate-otc
+
+### 2. Create a membership using the generated OTC
+POST http://localhost:8080/api/membership
+Content-Type: application/json
+
+{
+  "firstName": "Yoanna",
+  "lastName": "Tommy",
+  "email": "y@example.com",
+  "birthDate": "1985-06-17",
+  "phone": "+3256484564",
+  "receiveEmail": true,
+  "receiveSMS": false,
+  "oneTimeCode": "9471"
+}
+
+
+### Create membership — Email only, no OTC
+POST http://localhost:8080/api/membership
+Content-Type: application/json
+
+{
+  "firstName": "Laura",
+  "lastName": "Stevens",
+  "email": "laura.stevens@example.com",
+  "birthDate": "1990-03-12",
+  "phone": "",
+  "receiveEmail": true,
+  "receiveSMS": false,
+  "oneTimeCode": "7870"
+}
+
+
+### Create membership — SMS only, no OTC
+POST http://localhost:8080/api/membership
+Content-Type: application/json
+
+{
+  "firstName": "Marco",
+  "lastName": "Delgado",
+  "email": "",
+  "birthDate": "1982-11-04",
+  "phone": "+32475111222",
+  "receiveEmail": false,
+  "receiveSMS": true,
+  "oneTimeCode": "9742"
+}

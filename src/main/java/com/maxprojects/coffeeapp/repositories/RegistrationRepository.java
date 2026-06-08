@@ -1,0 +1,16 @@
+package com.maxprojects.coffeeapp.repositories;
+
+import com.maxprojects.coffeeapp.models.Registration;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import com.maxprojects.coffeeapp.models.Event;
+
+
+@Repository
+public interface RegistrationRepository extends JpaRepository<Registration, Long> {
+
+    List<Registration> findByEvent(Event event);
+
+}

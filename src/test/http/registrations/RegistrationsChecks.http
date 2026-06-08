@@ -1,0 +1,36 @@
+
+
+### GET — List all registrations
+GET http://localhost:8080/registrations
+Accept: application/json
+
+
+### GET — Registration by ID
+GET http://localhost:8080/registrations/1
+Accept: application/json
+
+
+### GET — Registrations for a specific event
+GET http://localhost:8080/registrations/event/2
+Accept: application/json
+
+
+### PATCH — Mark registration as arrived
+PATCH http://localhost:8080/registrations/1/arrived
+Content-Type: application/json
+
+{
+  "arrived": true
+}
+
+### PATCH — Mark registration as NOT arrived
+PATCH http://localhost:8080/registrations/1/arrived
+Content-Type: application/json
+
+{
+  "arrived": false
+}
+
+### DELETE — Delete registration by ID
+DELETE http://localhost:8080/registrations/2
+

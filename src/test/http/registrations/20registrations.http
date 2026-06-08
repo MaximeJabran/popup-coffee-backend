@@ -1,0 +1,279 @@
+### TEST 1 — Email only
+POST http://localhost:8080/registrations
+Content-Type: application/json
+
+{
+  "eventId": 1,
+  "firstName": "Alice",
+  "lastName": "Martin",
+  "emailOptIn": true,
+  "email": "alice@example.com",
+  "smsOptIn": false,
+  "phone": ""
+}
+
+### TEST 2 — SMS only (Belgian)
+POST http://localhost:8080/registrations
+Content-Type: application/json
+
+{
+  "eventId": 2,
+  "firstName": "Bob",
+  "lastName": "Durand",
+  "smsOptIn": true,
+  "phone": "+32475123456",
+  "emailOptIn": false,
+  "email": ""
+}
+
+### TEST 3 — Name only
+POST http://localhost:8080/registrations
+Content-Type: application/json
+
+{
+  "eventId": 1,
+  "firstName": "Claire",
+  "lastName": "Moreau",
+  "smsOptIn": false,
+  "phone": "",
+  "emailOptIn": false,
+  "email": ""
+}
+
+### TEST 4 — Email only
+POST http://localhost:8080/registrations
+Content-Type: application/json
+
+{
+  "eventId": 1,
+  "firstName": "David",
+  "lastName": "Leroy",
+  "emailOptIn": true,
+  "email": "david@example.com",
+  "smsOptIn": false,
+  "phone": ""
+}
+
+### TEST 5 — SMS only (Belgian)
+POST http://localhost:8080/registrations
+Content-Type: application/json
+
+{
+  "eventId": 1,
+  "firstName": "Emma",
+  "lastName": "Dubois",
+  "smsOptIn": true,
+  "phone": "+32477123456",
+  "emailOptIn": false,
+  "email": ""
+}
+
+### TEST 6 — Name only
+POST http://localhost:8080/registrations
+Content-Type: application/json
+
+{
+  "eventId": 1,
+  "firstName": "Franck",
+  "lastName": "Petit",
+  "smsOptIn": false,
+  "phone": "",
+  "emailOptIn": false,
+  "email": ""
+}
+
+### TEST 7 — Email only
+POST http://localhost:8080/registrations
+Content-Type: application/json
+
+{
+  "eventId": 1,
+  "firstName": "Gina",
+  "lastName": "Lambert",
+  "emailOptIn": true,
+  "email": "gina@example.com",
+  "smsOptIn": false,
+  "phone": ""
+}
+
+### TEST 8 — SMS only (Belgian)
+POST http://localhost:8080/registrations
+Content-Type: application/json
+
+{
+  "eventId": 1,
+  "firstName": "Hugo",
+  "lastName": "Simon",
+  "smsOptIn": true,
+  "phone": "+32478123456",
+  "emailOptIn": false,
+  "email": ""
+}
+
+### TEST 9 — Name only
+POST http://localhost:8080/registrations
+Content-Type: application/json
+
+{
+  "eventId": 1,
+  "firstName": "Isabelle",
+  "lastName": "Roux",
+  "smsOptIn": false,
+  "phone": "",
+  "emailOptIn": false,
+  "email": ""
+}
+
+### TEST 10 — Email only
+POST http://localhost:8080/registrations
+Content-Type: application/json
+
+{
+  "eventId": 1,
+  "firstName": "Julien",
+  "lastName": "Bernard",
+  "emailOptIn": true,
+  "email": "julien@example.com",
+  "smsOptIn": false,
+  "phone": ""
+}
+
+### TEST 11 — SMS only (French)
+POST http://localhost:8080/registrations
+Content-Type: application/json
+
+{
+  "eventId": 1,
+  "firstName": "Karine",
+  "lastName": "Morel",
+  "smsOptIn": true,
+  "phone": "+33612345678",
+  "emailOptIn": false,
+  "email": ""
+}
+
+### TEST 12 — Both email + SMS (Belgian)
+POST http://localhost:8080/registrations
+Content-Type: application/json
+
+{
+  "eventId": 1,
+  "firstName": "Louis",
+  "lastName": "Dupont",
+  "smsOptIn": true,
+  "phone": "+32460123456",
+  "emailOptIn": true,
+  "email": "louis@example.com"
+}
+
+### TEST 13 — Both email + SMS (French)
+POST http://localhost:8080/registrations
+Content-Type: application/json
+
+{
+  "eventId": 1,
+  "firstName": "Mélanie",
+  "lastName": "Girard",
+  "smsOptIn": true,
+  "phone": "+33765432109",
+  "emailOptIn": true,
+  "email": "melanie@example.com"
+}
+
+### TEST 14 — Email only (different domain)
+POST http://localhost:8080/registrations
+Content-Type: application/json
+
+{
+  "eventId": 1,
+  "firstName": "Nicolas",
+  "lastName": "Fabre",
+  "emailOptIn": true,
+  "email": "nicolas.fabre@outlook.com",
+  "smsOptIn": false,
+  "phone": ""
+}
+
+### TEST 15 — SMS only (Belgian, different prefix)
+POST http://localhost:8080/registrations
+Content-Type: application/json
+
+{
+  "eventId": 1,
+  "firstName": "Olivier",
+  "lastName": "Renard",
+  "smsOptIn": true,
+  "phone": "+32492123456",
+  "emailOptIn": false,
+  "email": ""
+}
+
+### TEST 16 — Name only (short names)
+POST http://localhost:8080/registrations
+Content-Type: application/json
+
+{
+  "eventId": 1,
+  "firstName": "Pia",
+  "lastName": "Li",
+  "smsOptIn": false,
+  "phone": "",
+  "emailOptIn": false,
+  "email": ""
+}
+
+### TEST 17 — Email only (Gmail)
+POST http://localhost:8080/registrations
+Content-Type: application/json
+
+{
+  "eventId": 1,
+  "firstName": "Quentin",
+  "lastName": "Marchal",
+  "emailOptIn": true,
+  "email": "quentin.m@gmail.com",
+  "smsOptIn": false,
+  "phone": ""
+}
+
+### TEST 18 — SMS only (French, different prefix)
+POST http://localhost:8080/registrations
+Content-Type: application/json
+
+{
+  "eventId": 1,
+  "firstName": "Romain",
+  "lastName": "Perrot",
+  "smsOptIn": true,
+  "phone": "+33698765432",
+  "emailOptIn": false,
+  "email": ""
+}
+
+### TEST 19 — Both email + SMS (Belgian)
+POST http://localhost:8080/registrations
+Content-Type: application/json
+
+{
+  "eventId": 1,
+  "firstName": "Sophie",
+  "lastName": "Lemaire",
+  "smsOptIn": true,
+  "phone": "+32470111222",
+  "emailOptIn": true,
+  "email": "sophie@example.com"
+}
+
+### TEST 20 — Both email + SMS (French)
+POST http://localhost:8080/registrations
+Content-Type: application/json
+
+{
+  "eventId": 1,
+  "firstName": "Thomas",
+  "lastName": "Renaud",
+  "smsOptIn": true,
+  "phone": "+33712349876",
+  "emailOptIn": true,
+  "email": "thomas.renaud@example.com"
+}
