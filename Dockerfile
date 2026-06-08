@@ -1,6 +1,7 @@
 FROM eclipse-temurin:21-jdk AS build
 WORKDIR /app
-COPY src/test/java/com/maxprojects/coffeeapp .
+COPY . .
+RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests
 
 FROM eclipse-temurin:21-jre
