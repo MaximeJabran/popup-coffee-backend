@@ -1,4 +1,4 @@
-package com.popupcoffee.security;
+package com.maxprojects.coffeeapp.security;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
