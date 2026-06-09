@@ -27,3 +27,13 @@ Content-Type: application/json
   "endDate": "2027-01-03T00:00:00",
   "location": "Rue du fort, Comines, Belgium"
 }
+
+### Create future event 4
+POST https://popup-coffee-backend.onrender.com/events
+Content-Type: application/json
+
+{
+  "startDate": "2027-05-15T00:00:00",
+  "endDate": "2027-05-20T00:00:00",
+  "location": "USA"
+}

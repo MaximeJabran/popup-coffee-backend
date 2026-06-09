@@ -277,3 +277,19 @@ Content-Type: application/json
   "emailOptIn": true,
   "email": "thomas.renaud@example.com"
 }
+
+
+
+### TEST 20 — Both email + SMS (French)
+POST https://popup-coffee-backend.onrender.com/registrations
+Content-Type: application/json
+
+{
+  "eventId": 1,
+  "firstName": "Thomas",
+  "lastName": "Renaud",
+  "smsOptIn": true,
+  "phone": "+33712349876",
+  "emailOptIn": true,
+  "email": "thomas.renaud@example.com"
+}

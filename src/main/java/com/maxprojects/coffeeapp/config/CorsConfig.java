@@ -16,11 +16,12 @@ public class CorsConfig {
                 registry.addMapping("/**")
                         .allowedOrigins(
                                 "http://localhost:5173",
-                                "https://your-vercel-domain.vercel.app"
+                                "https://popup-coffee-frontend.vercel.app",
+                                "https://popup-coffee-frontend-qmy05giex-maximejabrans-projects.vercel.app"
                         )
-                        .allowedMethods("GET", "POST", "PATCH", "PUT", "DELETE")
+                        .allowedMethods("GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
-                        .allowCredentials(true);
+                        .allowCredentials(false);
             }
         };
     }

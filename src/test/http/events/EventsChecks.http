@@ -15,3 +15,11 @@ DELETE http://localhost:8080/events/2
 ### GET — Registrations for a specific event
 GET http://localhost:8080/registrations/event/2
 Accept: application/json
+
+
+### GET — List all events
+GET https://popup-coffee-backend.onrender.com/events
+Accept: application/json
+
+### DELETE — Delete event by ID
+DELETE https://popup-coffee-backend.onrender.com/events/1
