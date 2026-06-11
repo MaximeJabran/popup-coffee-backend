@@ -6,9 +6,16 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 public class SecurityConfig {
+
+    private final AdminSessionFilter adminSessionFilter;
+
+    public SecurityConfig(AdminSessionFilter adminSessionFilter) {
+        this.adminSessionFilter = adminSessionFilter;
+    }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -20,36 +27,30 @@ public class SecurityConfig {
                 // Allow CORS (frontend on Vercel)
                 .cors(Customizer.withDefaults())
 
-                .authorizeHttpRequests(auth -> auth
+                // ⭐ Add your custom admin session filter BEFORE authentication
+                .addFilterBefore(adminSessionFilter, UsernamePasswordAuthenticationFilter.class)
 
-                        // ⭐ PUBLIC ENDPOINTS
+                .authorizeHttpRequests(auth -> auth
+                        // Public endpoints
                         .requestMatchers("/auth/login").permitAll()
                         .requestMatchers("/error").permitAll()
-
-                        // Public membership creation
                         .requestMatchers(HttpMethod.POST, "/membership").permitAll()
-
-                        // Public registration creation
                         .requestMatchers(HttpMethod.POST, "/registrations").permitAll()
-
-                        // Public event info
                         .requestMatchers("/events/next").permitAll()
                         .requestMatchers("/events/upcoming").permitAll()
 
-                        // ⭐ ADMIN‑ONLY ENDPOINTS
+                        // Admin-only endpoints
                         .requestMatchers("/registrations/admin/**").authenticated()
                         .requestMatchers("/membership/admin/**").authenticated()
                         .requestMatchers("/events/admin/**").authenticated()
                         .requestMatchers("/admin/**").authenticated()
 
-                        // ⭐ ANY OTHER REQUEST
+                        // Any other request
                         .anyRequest().permitAll()
                 )
 
-                // Disable default login form
+                // Disable default login form and HTTP Basic
                 .formLogin(form -> form.disable())
-
-                // Disable HTTP Basic popup
                 .httpBasic(basic -> basic.disable())
 
                 // Logout endpoint

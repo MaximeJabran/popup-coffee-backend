@@ -39,7 +39,8 @@ public class AdminSessionFilter implements Filter {
         HttpSession session = request.getSession(false);
 
         if (session == null || session.getAttribute("ADMIN") == null) {
-            response.setStatus(401);
+            SecurityContextHolder.clearContext();
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Admin session required");
             return;
         }
 
