@@ -41,11 +41,6 @@ public class AuthController {
                 .body(Map.of("status", "invalid_credentials"));
     }
 
-    @PostMapping("/logout")
-    public ResponseEntity<?> logout(HttpServletRequest request) {
-        request.getSession().invalidate();
-        return ResponseEntity.ok().body("Logged out");
-    }
 
     @GetMapping("/me")
     public ResponseEntity<?> me(HttpServletRequest request) {
@@ -56,5 +51,11 @@ public class AuthController {
         }
 
         return ResponseEntity.status(401).body("Not authenticated");
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout(HttpServletRequest request) {
+        request.getSession().invalidate();
+        return ResponseEntity.ok().body("Logged out");
     }
 }

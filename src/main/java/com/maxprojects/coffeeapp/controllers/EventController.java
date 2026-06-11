@@ -16,41 +16,44 @@ public class EventController {
         this.eventService = eventService;
     }
 
-    @PostMapping
-    public Event createEvent(@RequestBody Event event) {
-        return eventService.createEvent(event);
-    }
-
-
-
-    @GetMapping("/{id}")
-    public Event getEvent(@PathVariable Long id) {
-        return eventService.getEvent(id);
-    }
-
+    // ⭐ PUBLIC: frontend needs this to show the next event
     @GetMapping("/next")
     public Event getNextEvent() {
         return eventService.getNextEvent();
     }
 
-    @GetMapping
-    public List<Event> getAllEvents() {
-        return eventService.getAllEvents();
-    }
-
-
-
+    // ⭐ PUBLIC: frontend needs this to show upcoming events
     @GetMapping("/upcoming")
     public List<Event> getUpcomingEvents() {
         return eventService.getUpcomingEvents();
     }
 
-    @PutMapping("/{id}")
+    // ⭐ ADMIN: create event
+    @PostMapping("/admin")
+    public Event createEvent(@RequestBody Event event) {
+        return eventService.createEvent(event);
+    }
+
+    // ⭐ ADMIN: list all events
+    @GetMapping("/admin")
+    public List<Event> getAllEvents() {
+        return eventService.getAllEvents();
+    }
+
+    // ⭐ ADMIN: get event by ID
+    @GetMapping("/admin/{id}")
+    public Event getEvent(@PathVariable Long id) {
+        return eventService.getEvent(id);
+    }
+
+    // ⭐ ADMIN: update event
+    @PutMapping("/admin/{id}")
     public Event updateEvent(@PathVariable Long id, @RequestBody Event event) {
         return eventService.updateEvent(id, event);
     }
 
-    @DeleteMapping("/{id}")
+    // ⭐ ADMIN: delete event
+    @DeleteMapping("/admin/{id}")
     public void deleteEvent(@PathVariable Long id) {
         eventService.deleteEvent(id);
     }

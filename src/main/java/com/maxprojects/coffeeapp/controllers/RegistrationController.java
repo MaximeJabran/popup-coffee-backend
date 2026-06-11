@@ -9,8 +9,6 @@ import jakarta.validation.Valid;
 
 import java.util.List;
 
-
-
 @RestController
 @RequestMapping("/registrations")
 public class RegistrationController {
@@ -18,6 +16,7 @@ public class RegistrationController {
     @Autowired
     private RegistrationService registrationService;
 
+    // ⭐ PUBLIC: customers submit a registration
     @PostMapping
     public Registration createRegistration(@Valid @RequestBody RegistrationRequest req) {
         return registrationService.register(
@@ -31,37 +30,39 @@ public class RegistrationController {
         );
     }
 
-
-    @GetMapping
+    // ⭐ ADMIN: list all registrations
+    @GetMapping("/admin")
     public Iterable<Registration> getAllRegistrations() {
         return registrationService.getAll();
     }
 
-    @GetMapping("/event/{eventId}")
-    public List<Registration> getRegistrationsByEvent(@PathVariable Long eventId) {
-        return registrationService.getRegistrationsByEvent(eventId);
-    }
-
-
-    @GetMapping("/{id}")
+    // ⭐ ADMIN: get registration by ID
+    @GetMapping("/admin/{id}")
     public Registration getRegistration(@PathVariable Long id) {
         return registrationService.find(id);
     }
 
-    @PatchMapping("/{id}/use")
+    // ⭐ ADMIN: mark registration as used
+    @PatchMapping("/admin/{id}/use")
     public Registration markAsUsed(@PathVariable Long id) {
         return registrationService.markAsUsed(id);
     }
 
-    @PatchMapping("/{id}/arrived")
+    // ⭐ ADMIN: toggle arrival status
+    @PatchMapping("/admin/{id}/arrived")
     public Registration toggleArrived(@PathVariable Long id) {
         return registrationService.toggleArrived(id);
     }
 
-    @DeleteMapping("/{id}")
+    // ⭐ ADMIN: delete registration
+    @DeleteMapping("/admin/{id}")
     public void deleteRegistration(@PathVariable Long id) {
         registrationService.delete(id);
     }
 
-
+    // ⭐ ADMIN: get registrations for a specific event
+    @GetMapping("/admin/event/{eventId}")
+    public List<Registration> getRegistrationsByEvent(@PathVariable Long eventId) {
+        return registrationService.getRegistrationsByEvent(eventId);
+    }
 }
